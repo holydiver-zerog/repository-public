@@ -5,6 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "App",
+            "projectName": ""
+        },
+        {
             "name": "Python デバッガー: 現在のファイル",
             "type": "debugpy",
             "request": "launch",
