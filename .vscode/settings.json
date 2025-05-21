@@ -1,4 +1,8 @@
 {
+    // settings.json
+    "indentRainbow.indicatorStyle": "light",
+    "indentRainbow.lightIndicatorStyleLineWidth": 1,
+    "editor.guides.indentation": false,
     // 検索にマッチした箇所をハイライト
     "vim.hlsearch": true,
     // OS のクリップボードと同期
@@ -16,15 +20,10 @@
     "vim.statusBarColors.easymotionmode": ["#86592d", "#fff"],
     "vim.statusBarColors.easymotioninputmode": ["#86592d", "#fff"],
     "vim.statusBarColors.surroundinputmode": ["#86592d", "#fff"],
-    // settings.json
-    "indentRainbow.indicatorStyle": "light",
-    "indentRainbow.lightIndicatorStyleLineWidth": 1,
-    "editor.guides.indentation": false,
-    "indentRainbow.colors": [
-    "rgba(255,255,64,0.6)",
-    "rgba(127,255,127, 0.6)",
-    "rgba(255,127,255, 0.6)",
-    "rgba(79,236,236, 0.6)"
-    ]
+    // Python
+    "python.testing.pytestArgs": [
+        "."
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
 }
-
