@@ -3,8 +3,8 @@
 
 print('Hello py')
 
-message='Hello Python!'
-print("Hello Python!")
+message1='Hello Python!'
+print(message1)
 
 message2="Hello World!"
 print(message2)
