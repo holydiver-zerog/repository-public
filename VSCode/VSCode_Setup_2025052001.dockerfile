@@ -44,7 +44,7 @@ $ git merge app01
 
 $ git config --global user.name 'holydiver'
 $ git config --global user.email 'holydiver@nifty.com'
-$ git config --global core.editor 'code --wait's
+$ git config --global core.editor 'code --wait'
 $ git config --global merge.tool 'code --wait "$MERGED"'
 $ git config --global push.default simple
 $ git config --global pull.rebase false
