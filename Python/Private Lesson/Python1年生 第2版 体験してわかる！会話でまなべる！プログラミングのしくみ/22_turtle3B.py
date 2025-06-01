@@ -1,6 +1,5 @@
 # タートルグラフィックス
 # まっすぐ進んで、「左に144度曲がる」という行動を5回くり返して、星を描くプログラム
-# 線の色変更(06_turtle3.py)
 from turtle import *
 shape("turtle")
 # col = ["orange","limegreen","gold","plum","tomato"]
