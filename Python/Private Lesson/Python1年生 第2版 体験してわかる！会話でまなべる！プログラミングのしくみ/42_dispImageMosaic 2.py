@@ -1,4 +1,6 @@
 # 画像表示アプリ
+# モノクロ画像に変換
+# モザイク画像に変換
 #from curses import newwin
 #from os import fpathconf, fspath
 import tkinter as tk                                        # tkinterをインポートしてtkと略して使う
@@ -7,15 +9,17 @@ import PIL.Image                                            # 画像を扱うモ
 import PIL.ImageTk                                          # tkinterで作った画面上に画像を表示させるモジュール
 
 def dispPhoto(path):                                        # 画像ファイルを表示する関数
-    # 画像を読み込む
-    newImage = PIL.Image.open(path).resize((300,300))       # 画像を読み込む
+    # 画像を読み込んで、モザイクに変換
+    newImage = PIL.Image.open(path).convert("L").resize((32,32)).resize((300,300)),resample=0   # 画像を読み込む、モノクロ画像に変換、モザイクに変換
     # そのイメージをラベルに表示する
     imageData = PIL.ImageTk.PhotoImage(newImage)            # イメージをラベルに表示する
     imageLabel.configure(image = imageData)                 # イメージをラベルに表示する
-    imageLabel.image = imageData                            # type: ignore # イメージをラベルに表示する
+#   imageLabel.image_names = imageData                      # イメージをラベルに表示する
+#   imageLabel.image_types = imageData                      # イメージをラベルに表示する
+    imageLabel.image = imageData                            # type: ignore
 
 def openFile():                                             # ファイルダイアログを開くための関数
-    fpath = fd.askopenfilename()                           # ファイルダイアログを開いて、選択したファイル名を取得する
+    fpath = fd.askopenfilename()                            # ファイルダイアログを開いて、選択したファイル名を取得する
     if fpath:                                               # もしファイルがあったら
         dispPhoto(fpath)                                    # そのファイル名で関数を呼び出す
 

@@ -1,0 +1,9 @@
+タグの書式:
+<タグ名> 内容 </タグ名>
+↓           ↓
+開始タグ      終了タグ
+
+Live Server:
+http://127.0.0.1:5500/HTML/xxx.html
+http://localhost:5500/HTML/xxx.html
+

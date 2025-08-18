@@ -1,6 +1,6 @@
 # もしもscore80点以上だったら、”やったね！次もこの調子だ”と表示されるプログラム
-score = 90
-# score = 70
+#score = 90
+score = 70
 if score >= 80:
     print("やったね！")
     print("次もこの調子だ")

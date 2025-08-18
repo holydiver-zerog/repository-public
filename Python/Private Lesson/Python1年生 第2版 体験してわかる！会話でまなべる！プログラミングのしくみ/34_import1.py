@@ -1,6 +1,6 @@
 # モジュールを読み込んで動かすプログラム
-import tax
+import 33_tax
 
-print(tax.postTaxPrice(120),"円")
-print(tax.postTaxPrice(128),"円")
-print(tax.postTaxPrice(980),"円")
+print(postTaxPrice(120),"円")
+print(postTaxPrice(128),"円")
+print(postTaxPrice(980),"円")

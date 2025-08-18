@@ -3,8 +3,7 @@
 #    print("こんにちは")
 #
 def sayhello():
-    print("こんにちは")
 
-sayhello()
-sayhello()
-sayhello()
+print(sayhello())
+print(sayhello())
+print(sayhello())

@@ -1,14 +1,10 @@
 # ラベルとボタンを表示するだけのアプリ(37_app1.py)
 # こんにちはと表示する関数を追加
-# あみだくじアプリへ変更
 #from logging import root
 import tkinter as tk                                # tkinterをインポートしてtkと略して使う
-import random                                       # ランダムをインポート
 
 def dispLabel():                                    # 関数を追加する
-#    lbl.configure(text="こんにちは")                  # ラベルの文字を「こんにちは」に変更する
-    kuji = ["大吉","中吉","小吉","凶"]                # おみくじのリストを用意する
-    lbl.configure(text=random.choice(kuji))         # ランダムに1つ選び出して表示する
+    lbl.configure(text="こんにちは")                  # ラベルの文字を「こんにちは」に変更する
 
 root = tk.Tk()                                      # 画面を作る
 root.geometry("200x100")                            # 画面の大きさを決める

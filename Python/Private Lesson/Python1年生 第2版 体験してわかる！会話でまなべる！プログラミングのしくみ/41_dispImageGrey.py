@@ -12,10 +12,12 @@ def dispPhoto(path):                                        # 画像ファイル
     # そのイメージをラベルに表示する
     imageData = PIL.ImageTk.PhotoImage(newImage)            # イメージをラベルに表示する
     imageLabel.configure(image = imageData)                 # イメージをラベルに表示する
-    imageLabel.image = imageData                            # type: ignore # イメージをラベルに表示する
+#   imageLabel.image_names = imageData                      # イメージをラベルに表示する
+#   imageLabel.image_types = imageData                      # イメージをラベルに表示する
+    imageLabel.image = imageData                            # type: ignore
 
 def openFile():                                             # ファイルダイアログを開くための関数
-    fpath = fd.askopenfilename()                           # ファイルダイアログを開いて、選択したファイル名を取得する
+    fpath = fd.askopenfilename()                            # ファイルダイアログを開いて、選択したファイル名を取得する
     if fpath:                                               # もしファイルがあったら
         dispPhoto(fpath)                                    # そのファイル名で関数を呼び出す
 

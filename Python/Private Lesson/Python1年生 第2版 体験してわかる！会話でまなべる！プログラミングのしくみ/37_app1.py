@@ -4,7 +4,6 @@ import tkinter as tk                # tkinterをインポートしてtkと略し
 
 root = tk.Tk()                      # 画面を作る
 root.geometry("200x100")            # 画面の大きさを決める
-#root.geometry("400x200")            # 画面の大きさを決める
 
 lbl = tk.Label(text="LABEL")        # ラベルを作る
 btn = tk.Button(text="PUSH")        # ボタンを作る
