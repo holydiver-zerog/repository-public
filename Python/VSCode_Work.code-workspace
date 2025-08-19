@@ -1,0 +1,41 @@
+{
+	"folders": [
+		{
+			"name": "VSCode_Work",
+			"path": ".."
+		},
+		{
+			"name": "project",
+			"path": "../../../../../dev/project"
+		}
+	],
+	"settings": {
+		"indentRainbow.indicatorStyle": "light",
+		"indentRainbow.lightIndicatorStyleLineWidth": 1,
+		"html.format.enable": true,
+		"java.project.sourcePaths": [
+			"Java/sukkiri-java4-codes/chap04/quiz04-03",
+			"Java/sukkiri-java4-codes/chap04/code04-19",
+			"Java/sukkiri-java4-codes/chap04/code04-18",
+			"Java/sukkiri-java4-codes/chap04/code04-17",
+			"Java/sukkiri-java4-codes/chap04/code04-16",
+			"Java/sukkiri-java4-codes/chap04/code04-15",
+			"Java/sukkiri-java4-codes/chap04/code04-14",
+			"Java/sukkiri-java4-codes/chap04/code04-13",
+			"Java/sukkiri-java4-codes/chap04/code04-12",
+			"Java/sukkiri-java4-codes/chap04/code04-11",
+			"Java/sukkiri-java4-codes/chap04/code04-10",
+			"Java/sukkiri-java4-codes/chap04/code04-09",
+			"Java/sukkiri-java4-codes/chap04/code04-08",
+			"Java/sukkiri-java4-codes/chap04/code04-07",
+			"Java/sukkiri-java4-codes/chap04/code04-06",
+			"Java/sukkiri-java4-codes/chap04/code04-05",
+			"Java/sukkiri-java4-codes/chap04/code04-04",
+			"Java/sukkiri-java4-codes/chap04/code04-03",
+			"Java/sukkiri-java4-codes/chap04/code04-02",
+			"Java/sukkiri-java4-codes/chap04/code04-01",
+			"Java/app/src",
+			"Java"
+		]
+	}
+}

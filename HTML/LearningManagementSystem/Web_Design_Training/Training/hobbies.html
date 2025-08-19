@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>趣味・特技 - 関 雄二のプロフィール</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- スタイルタグ：HTML文書内でCSSを直接記述するためのタグ -->
+    <!--内部CSS(<style>タブ内のCSS)は、外部CSSより優先される-->
+    <style>
+      table {
+        border: 2px solid black;
+        border-collapse: collapse;
+        margin: 20px;
+      }
+
+      /* テーブルのセルの境界線を設定  実線solid*/
+      th,
+      td {
+        border: 2px solid red;
+      }
+
+      th {
+        /* 下線を二重線に設定 枠線の幅（3ピクセル）枠線のスタイル（二重線） */
+        border-bottom: 3px double blue;
+        text-align: left;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>趣味・特技</h1>
+    </header>
+    <main>
+      <section>
+        <h2>趣味と特技</h2>
+        <!--HTMLでクリック可能なボタンを作成、id属性も付加-->
+        <button id="toggleHobbies">特技を表示</button>
+
+        <!--グループ化、複数の要素を一つのまとまりとして扱う-->
+        <!--id属性は、HTML要素に一意の識別子を付けるための属性-->
+        <div id="hobbyContent">
+          <!--インラインCSS、内部CSSや外部CSSよりさらに優先される-->
+          <h3 style="margin-left: 20px">趣味</h3>
+
+          <!--順序のある箇条書きリストを作る要素-->
+          <ol>
+            <li>旅行</li>
+            <li>アウトドア(キャンプ等)</li>
+            <!--
+                    <li>ハイキング</li>
+                    <li>写真撮影</li>
+                    <li>料理（特に和食）</li>
+            -->
+          </ol>
+
+          <!--リストの開始番号指定-->
+          <ol start="5">
+            <li>旅行</li>
+            <li>アウトドア(キャンプ等)</li>
+          </ol>
+
+          <!--リストを降順に表示-->
+          <ol reversed>
+            <li>旅行</li>
+            <li>アウトドア(キャンプ等)</li>
+          </ol>
+        </div>
+
+        <div id="skillContent">
+          <!--表全体を囲む-->
+          <table>
+            <!--表の行を定義-->
+            <tr>
+              <!--表のヘッダーセルを定義、通常太字で表示-->
+              <th>特技</th>
+            </tr>
+            <tr>
+              <!--表のデータセルを定義-->
+              <td>特になし</td>
+            </tr>
+            <!--
+                    <tr>
+                        <td>英語（TOEIC 850点）</td>
+                    </tr>
+                    <tr>
+                        <td>料理（特に和食）</td>
+                    </tr>
+                    <tr>
+                        <td>ギター演奏</td>
+                    </tr>
+            -->
+          </table>
+        </div>
+      </section>
+      <nav>
+        <ul>
+          <li><a href="index.html">ホーム</a></li>
+          <li><a href="goals.html">訓練期間中の目標</a></li>
+          <li><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </main>
+
+    <!--JavaScriptを外部ファイルとして読み込む-->
+    <script src="script/hobbies.js"></script>
+  </body>
+</html>

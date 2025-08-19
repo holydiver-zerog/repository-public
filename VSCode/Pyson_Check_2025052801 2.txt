@@ -1,0 +1,22 @@
+
+■演算子
+
+//  わり算(小数部分を切り捨て)
+%   わり算の余り
+
+■命令
+
+print       文字列表示
+random      同じプログラムでも実行するたびに違う結果が出る
+choice
+float
+input
+forward
+back
+left
+right
+turtle
+shape
+done
+
+

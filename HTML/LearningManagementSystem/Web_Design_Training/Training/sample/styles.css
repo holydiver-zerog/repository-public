@@ -1,0 +1,25 @@
+/* ボタンの枠線、中の色を指定 */
+.custom-button {
+    background-color: #4c53af; /* ボタンの背景色 */
+    border: 2px solid #4CAF50; /* ボタンの枠線の色と太さ */
+    color: white; /* ボタンの文字色 */
+    padding: 5px 10px; /* ボタン内のパディング */
+    text-align: center; /* 文字の位置 */
+    text-decoration: none; /* テキストの下線を消す */
+    display: inline-block; /* ボタンをインラインブロック要素に */
+    font-size: 16px; /* フォントサイズ */
+    margin: 4px 2px; /* ボタンの間隔 */
+    cursor: pointer; /* ポインタを指マークに */
+}
+
+/* ボタンを横並びにする */
+.button-container {
+    display: flex; /* フレックスボックスを使用 */
+    justify-content: space-between; /* ボタンの間隔を均等にする */
+}
+
+/* ボタンのサイズを統一する */
+.custom-button {
+    flex: 1; /* 各ボタンを均等幅に */
+    min-width: 100px; /* 最小幅を設定 */
+}

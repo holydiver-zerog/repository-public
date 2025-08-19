@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>お問い合わせ - 関 雄二のプロフィール</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>お問い合わせ</h1>
+    </header>
+
+    <main>
+      <section>
+        <h2>お問い合わせフォーム</h2>
+        <!--Webページ上でユーザーから情報を収集するための入力フォームを作成する-->
+        <form id="form">
+          <!--入力フィールドにラベルを付ける-->
+          <label for="name">名前:</label>
+          <!--テキスト入力、パスワード入力、チェックボックスなど-->
+          <input type="text" id="name" name="name" />
+
+          <label for="email">メールアドレス:</label>
+          <input type="email" id="email" name="email" />
+
+          <label for="message">メッセージ:</label>
+          <!--複数行のテキスト入力、required は必須項目の意味-->
+          <textarea id="message" name="message" required></textarea>
+
+          <!--送信や他のアクションのためのボタン-->
+          <button type="submit">送信</button>
+        </form>
+      </section>
+
+      <nav>
+        <ul>
+          <li><a href="index.html">ホーム</a></li>
+          <li><a href="hobbies.html">趣味・特技</a></li>
+          <li><a href="goals.html">訓練期間中の目標</a></li>
+        </ul>
+      </nav>
+    </main>
+
+    <!--<script>タブは、<body/>タグの直前に書く、HTMLの途中にJavaScriptがあると読み込みが遅くなるため-->
+    <script>
+      // 厳格（strict）モードでコードを実行する
+      "use strict";
+      // 取得したい要素のidを文字列で指定、メッソド、document.getElementById("引数")
+      // イベントの種類を文字列で指定、メソッド、.addEventListener(第1引数,第2引数)
+      // 例)第1引数:クリックイベントの場合は'click'、フォームの送信イベントの場合は'submit'を指定
+      // 例)第2引数:イベントが発生したときに実行される関数を指定
+      // addEventListener('submit', (event) => alert('表示させたい文字列'));
+      // addEventListener:クリックなどのイベント処理をするメソッド
+      // (event) => alert('表示させたい文字列'):実際に処理する内容、eventはイベントオブジェクトを受け取るための引数、=> アロー関数は、簡潔に関数を定義するための方法
+      document.getElementById("form").addEventListener("submit", (event) => {
+        // 選択させるダイアログボックスを出して、
+        // OKなら window.alert('送信が完了しました。'); 、
+        // キャンセルなら window.alert('送信がキャンセルされました。'); の文を出す処理
+        if (window.confirm("送信してもよろしいですか？")) {
+          // window.alert(出力したいテキストや計算式など);
+          // この１行を入れるだけで、画面にダイアログボックスを表示
+          // window・・・オブジェクト（もの。命令を出す対象）
+          // alert()・・・メソッド（命令）
+          // （）の中・・・パラメータ（処理で使う具体的な値）
+          window.alert("送信が完了しました。"); // ユーザーが「OK」をクリックした場合のメッセージ
+        } else {
+          window.alert("送信がキャンセルされました。"); // ユーザーが「キャンセル」をクリックした場合のメッセージ
+        }
+      });
+    </script>
+  </body>
+</html>
