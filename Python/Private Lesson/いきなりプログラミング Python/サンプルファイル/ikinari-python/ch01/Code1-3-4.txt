@@ -1,0 +1,10 @@
+print('1 から100 までの間で好きな数字を1 つ思い浮かべてください。')
+print('あなたの考えている数字を7 回以内に当ててみましょう。')
+
+# low: 最小の数値、high: 最大の数値
+low = 1
+high = 100
+print(low, high)
+
+for i in range(7):
+    print('質問', i)

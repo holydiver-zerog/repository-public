@@ -1,0 +1,11 @@
+import cv2
+
+# 画像ファイルの読み込み
+img = cv2.imread('img.jpg')
+
+# 画像の表示
+cv2.imshow('Image', img)
+cv2.waitKey(0)
+
+# ウィンドウの解放
+cv2.destroyAllWindows()

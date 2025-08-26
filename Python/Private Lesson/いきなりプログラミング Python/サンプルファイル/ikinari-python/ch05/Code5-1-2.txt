@@ -1,0 +1,14 @@
+import cv2
+
+# カメラの初期化
+cap = cv2.VideoCapture(0)
+
+# 静止画の取得
+ret, frame = cap.read()
+
+# 画像を保存
+if ret:
+    cv2.imwrite('img.jpg', frame)
+
+# 解放処理
+cap.release()

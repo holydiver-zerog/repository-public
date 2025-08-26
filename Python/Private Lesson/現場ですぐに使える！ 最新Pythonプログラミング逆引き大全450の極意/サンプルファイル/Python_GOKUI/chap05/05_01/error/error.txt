@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "C:\Users\comfo\AppData\Local\Temp\ipykernel_27408\2910735824.py", line 4, in <module>
+    func1()
+  File "C:\Users\comfo\AppData\Local\Temp\ipykernel_27408\2818201485.py", line 4, in func1
+    func2()
+  File "C:\Users\comfo\AppData\Local\Temp\ipykernel_27408\2818201485.py", line 12, in func2
+    raise Exception('Error occurred')
+Exception: Error occurred

@@ -1,0 +1,28 @@
+import cv2
+import time
+
+# カメラの初期化
+cap = cv2.VideoCapture(0)
+
+# 撮影条件
+frame_rate = 30
+duration = 10
+interval = 1 / frame_rate
+frame_count = int(duration / interval)
+
+# 動画撮影
+for i in range(frame_count):
+    ret, frame = cap.read()
+    if not ret:
+        break
+
+    cv2.imshow('Recording', frame)
+
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+    time.sleep(interval)
+
+# 解放処理
+cap.release()
+cv2.destroyAllWindows()

@@ -1,0 +1,16 @@
+import speech_recognition as sr
+
+r = sr.Recognizer()
+
+with sr.Microphone() as source:
+    r.adjust_for_ambient_noise(source, duration=1)
+    print('マイクに向かってタメ口で話しかけてください')
+    audio = r.listen(source)
+
+try:
+    recognized_text = r.recognize_google(audio, language='ja')
+    print(f'音声認識結果「{recognized_text}」')
+except sr.UnknownValueError:
+    print('認識できませんでした。')
+except sr.RequestError as e:
+    print('ネットワークエラーが発生しました。')

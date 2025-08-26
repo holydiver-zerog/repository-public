@@ -1,0 +1,38 @@
+import cv2
+import numpy as np
+
+def apply_color_tone(img):
+    """画像に色効果を適用する関数"""
+
+    # セピア調にするカラー変換行列
+    sepia_filter = np.array([[0.272, 0.534, 0.131],
+                             [0.349, 0.686, 0.168],
+                             [0.393, 0.769, 0.189]])
+
+    # カラー変換行列
+    filter = np.array([[0, 0, 1],
+                       [0, 1, 0],
+                       [1, 0, 0]])
+    
+    applied_img = cv2.transform(img, filter)
+
+    # 値を0 ～ 255 の範囲に変更
+    applied_img = np.clip(applied_img, 0, 255).astype(np.uint8)
+
+    return applied_img
+
+# 画像ファイルの読み込み
+img = cv2.imread('img.jpg')
+
+# 画像処理を実行
+applied_img = apply_color_tone(img)
+
+# 画像の表示
+cv2.imshow('Image', applied_img)
+cv2.waitKey(0)
+
+# 画像の保存
+cv2.imwrite('img_out.jpg', applied_img)
+
+# ウィンドウの解放
+cv2.destroyAllWindows()

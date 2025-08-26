@@ -1,0 +1,83 @@
+import cv2
+import numpy as np
+
+def apply_color_tone(img):
+    """画像に色効果を適用する関数"""
+
+    # セピア調にするカラー変換行列
+    sepia_filter = np.array([[0.272, 0.534, 0.131],
+                             [0.349, 0.686, 0.168],
+                             [0.393, 0.769, 0.189]])
+
+    # カラー変換行列
+    filter = np.array([[5, 0, 0],
+                       [0, 5, 0],
+                       [0, 0, 5]])
+    
+    applied_img = cv2.transform(img, filter)
+
+    # 値を0 ～ 255 の範囲に変更
+    applied_img = np.clip(applied_img, 0, 255).astype(np.uint8)
+
+    return applied_img
+
+def apply_edges(img):
+    """エッジを検出して元画像に重ね書きする関数"""
+
+    # グレースケールに変換
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+    # エッジを検出
+    edges = cv2.Canny(gray, 100, 200)
+
+    # エッジを太くする
+    kernel = np.ones((3, 3), np.uint8)
+    edges_dilated = cv2.dilate(edges, kernel, iterations=1)
+
+    # エッジを黒色で描画
+    img[edges_dilated == 255] = (0, 0, 0)
+
+    return img
+
+def apply_blur(img):
+    """画像全体にぼかし効果を追加する関数"""
+
+    kernel = (15, 15)
+    applied_img = cv2.GaussianBlur(img, kernel, 0)
+
+    return applied_img
+
+# 動画ファイルの読み込み
+cap = cv2.VideoCapture('movie_timelapse.mp4')
+
+# フレームレートの取得と再生時間の計算
+frame_rate = cap.get(cv2.CAP_PROP_FPS)
+interval = int(1000 / frame_rate)
+
+# 動画の幅と高さを取得
+w = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+h = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+
+# 動画保存条件
+fourcc = cv2.VideoWriter_fourcc(*'mp4v')
+out = cv2.VideoWriter('movie_timelapse_edited.mp4', fourcc, frame_rate, (w, h))
+
+# 動画再生
+while cap.isOpened():
+    ret, img = cap.read()
+    if not ret:
+        break
+
+    # 画像処理を実行
+    applied_img = apply_edges(img)
+    applied_img = apply_color_tone(applied_img)
+    #applied_img = apply_blur(applied_img)
+
+    out.write(applied_img)
+
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+# ファイルの解放
+cap.release()
+out.release()

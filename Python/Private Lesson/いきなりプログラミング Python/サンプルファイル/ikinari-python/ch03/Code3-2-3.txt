@@ -1,0 +1,35 @@
+import pyaudio
+
+def get_mic_index(pa):
+    """マイクチャンネルを取得する関数"""
+    
+    # マイクチャンネル一覧をリストに追加する
+    mic_list = []
+    for i in range(pa.get_device_count()):
+        device_info = pa.get_device_info_by_index(i)
+        num_of_input_ch = device_info['maxInputChannels']
+    
+        if num_of_input_ch > 0:
+            mic_list.append(device_info['index'])
+    
+    return mic_list[0]
+
+def record(pa, index, duration):
+    """PC のマイクで録音する関数"""
+
+    # 録音条件
+    sampling_rate = 44100
+    frame_size = 1024
+
+    # ストリームを開く
+    stream = pa.open(format=pyaudio.paInt16, channels=1, rate=sampling_rate,
+                     input=True, input_device_index=index, frames_per_buffer=frame_size)
+
+    return
+
+# PyAudio を準備する
+pa = pyaudio.PyAudio()
+
+# マイクチャンネルを自動取得
+index = get_mic_index(pa)
+print(index)

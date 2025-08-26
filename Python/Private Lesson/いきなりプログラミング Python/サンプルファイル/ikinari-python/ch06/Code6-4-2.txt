@@ -1,0 +1,51 @@
+from ultralytics import YOLO
+import cv2
+import numpy as np
+
+def text_overwrite_to_image(img):
+    """テキストを画像に描画する関数"""
+
+    # 画像の横サイズを取得
+    img_width = img.shape[1]
+
+    # 黒い四角形（拡張領域）を作成
+    extension_height = 40
+    black_rectangle = np.zeros((extension_height, img_width, 3), dtype=np.uint8)
+
+    # 元の画像と黒い四角形を結合
+    extended_img = np.vstack((black_rectangle, img))
+
+    return extended_img
+
+# モデルを設定
+model = YOLO('yolov8n.pt')
+
+# 動画撮影を開始
+cap = cv2.VideoCapture(0)
+
+while cap.isOpened():
+    # フレームを抽出する
+    ret, frame = cap.read()
+
+    if ret:
+        # 物体検出
+        results = model(frame, verbose=False, classes=0)
+        img_annotated = results[0].plot()
+
+        # 分析
+        class_list = results[0].boxes.cls
+        count_class = len(class_list)
+        
+        # 画像を表示
+        img_annotated = text_overwrite_to_image(img_annotated)
+        cv2.imshow('Playing', img_annotated)
+
+        # q キーが押されたらウィンドウを閉じる
+        if cv2.waitKey(1) & 0xFF == ord("q"):
+            break
+    else:
+        break
+
+# 解放処理
+cap.release()
+cv2.destroyAllWindows()

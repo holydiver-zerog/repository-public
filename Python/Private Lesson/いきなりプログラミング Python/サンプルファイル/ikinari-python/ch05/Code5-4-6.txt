@@ -1,0 +1,66 @@
+import cv2
+import numpy as np
+
+def apply_color_tone(img):
+    """画像に色効果を適用する関数"""
+
+    # セピア調にするカラー変換行列
+    sepia_filter = np.array([[0.272, 0.534, 0.131],
+                             [0.349, 0.686, 0.168],
+                             [0.393, 0.769, 0.189]])
+
+    # カラー変換行列
+    filter = np.array([[1, 0, 0],
+                       [0, 1, 0],
+                       [0, 0, 1]])
+    
+    applied_img = cv2.transform(img, filter)
+
+    # 値を0 ～ 255 の範囲に変更
+    applied_img = np.clip(applied_img, 0, 255).astype(np.uint8)
+
+    return applied_img
+
+def apply_edges(img):
+    """エッジを検出して元画像に重ね書きする関数"""
+
+    # グレースケールに変換
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+    # エッジを検出
+    edges = cv2.Canny(gray, 100, 200)
+
+    # エッジを太くする
+    kernel = np.ones((3, 3), np.uint8)
+    edges_dilated = cv2.dilate(edges, kernel, iterations=1)
+
+    # エッジを黒色で描画
+    img[edges_dilated == 255] = (0, 0, 0)
+
+    return img
+
+def apply_blur(img):
+    """画像全体にぼかし効果を追加する関数"""
+
+    kernel = (15, 15)
+    applied_img = cv2.GaussianBlur(img, kernel, 0)
+
+    return applied_img
+
+# 画像ファイルの読み込み
+img = cv2.imread('img.jpg')
+
+# 画像処理を実行
+applied_img = apply_color_tone(img)
+#applied_img = apply_edges(applied_img)
+applied_img = apply_blur(applied_img)
+
+# 画像の表示
+cv2.imshow('Image', applied_img)
+cv2.waitKey(0)
+
+# 画像の保存
+cv2.imwrite('img_out.jpg', applied_img)
+
+# ウィンドウの解放
+cv2.destroyAllWindows()
