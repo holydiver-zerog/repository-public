@@ -36,3 +36,6 @@ print(LIST + ":" + str(array_List_Exchange))
 print(LIST + " TYPE :" + str(type(array_List_Exchange)))
 print(NEW + ":" + str(array_List_New))
 print(NEW + " TYPE :" + str(type(array_List_New)))
+
+
+# test
